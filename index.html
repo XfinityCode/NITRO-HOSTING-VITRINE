@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitro-Hosting</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --background-color: #0a0a1a;
+            --card-background: rgba(42, 42, 74, 0.9);
+            --text-color: white;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: rgba(10, 10, 26, 0.95);
+            padding: clamp(0.8rem, 2vw, 1.2rem);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(74, 144, 226, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 1vw, 1rem);
+        }
+
+        .logo-image {
+            width: clamp(30px, 5vw, 40px);
+            height: clamp(30px, 5vw, 40px);
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-text {
+            color: var(--primary-color);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        .client-space {
+            background: var(--primary-color);
+            padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
+            border-radius: 25px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .client-space:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background-image: url("http://www.image-heberg.fr/files/17363014841788547871.jpg");
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            text-align: center;
+            position: relative;
+            padding: 1rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(10, 10, 26, 0.9), rgba(26, 26, 46, 0.8));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 90%;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 5rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 3px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+            opacity: 0.9;
+        }
+
+        .offers {
+            padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 2rem);
+            background: rgba(35, 35, 66, 0.9);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: clamp(1.5rem, 4vw, 2.5rem);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: clamp(1rem, 3vw, 2rem);
+        }
+
+        .offer-card {
+            background: var(--card-background);
+            border-radius: 20px;
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            text-align: center;
+            color: var(--text-color);
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .offer-icon {
+            width: clamp(80px, 15vw, 120px);
+            height: clamp(80px, 15vw, 120px);
+            margin: 0 auto 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .offer-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .offer-price {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--primary-color);
+            margin: clamp(1rem, 3vw, 1.5rem) 0;
+            font-weight: bold;
+        }
+
+        .offer-specs {
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+
+        .offer-specs p {
+            margin: 0.8rem 0;
+            color: #d0d0d0;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .order-button {
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .order-button:hover {
+            transform: translateY(-2px);
+            background-color: #357abd;
+        }
+
+        .rating {
+            background: rgba(74, 144, 226, 0.1);
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            border-radius: 15px;
+            margin-top: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        .stars {
+            color: var(--primary-color);
+            margin-top: 0.8rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            letter-spacing: 5px;
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .client-space {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .offer-specs p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-image">
+                <img src="http://www.image-heberg.fr/files/17363002484038730628.png" alt="Logo" />
+            </div>
+            <div class="logo-text">Nitro-Hosting</div>
+        </div>
+        <a href="https://discord.gg/8Xyf8Pqavu" class="client-space" target="_blank">Notre Discord</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Nitro <span>Hosting</span></h1>
+            <p>LOUEZ VOTRE SERVEUR GTA RP À PARTIR DE 5 €</p>
+            <div class="rating">
+                <div>Excellent</div>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="offers">
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div class="offer-icon">
+                    <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP" />
+                </div>
+                <h3>Starter</h3>
+                <p>Parfait pour démarrer votre aventure RP sans vous ruiner ! 🚀</p>
+                <div class="offer-price">5€ <span>ttc/mois</span></div>
+                <div class="offer-specs">
+                    <p>2X INTEL XEON E5-2695 v4</p>
+                    <p>4 GO RAM DDR3 ECC</p>
+                    <p>10 GO de stockage SSD</p>
+                    <p>10 Gbps/s bande passante</p>
+                    <p>64 joueurs maximum (Clé partagée comprise)</p>
+                    <p>Localisation : France</p>
+                </div>
+                <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-icon">
+                    <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP" />
+                </div>
+                <h3>Standard</h3>
+                <p>Propulsez votre serveur vers de nouveaux horizons ! ⚡</p>
+                <div class="offer-price">10€ <span>ttc/mois</span></div>
+                <div class="offer-specs">
+                    <p>2X INTEL XEON E5-2695 v4</p>
+                    <p>10 GO RAM DDR3 ECC</p>
+                    <p>30 GO de stockage SSD</p>
+                    <p>10 Gbps/s bande passante</p>
+                    <p>64 joueurs maximum (Clé partagée comprise)</p>
+                    <p>Localisation : France</p>
+                </div>
+                <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-icon">
+                    <img src="
+                    http://www.image-heberg.fr/files/17363038351487151209.png " alt="Serveur GTA RP" />
+                </div>
+                <h3>Premium</h3>
+                <p>La puissance ultime pour des projets ambitieux ! 🏆</p>
+                <div class="offer-price">15€ <span>ttc/mois</span></div>
+                <div class="offer-specs">
+                    <p>2X INTEL XEON E5-2695 v4</p>
+                    <p>18 GO RAM DDR3 ECC</p>
+                    <p>100 GO de stockage SSD</p>
+                    <p>10 Gbps/s bande passante</p>
+                    <p>64 joueurs maximum (Clé partagée comprise)</p>
+                    <p>Localisation : France</p>
+                </div>
+                <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            // Bloquer Ctrl+C, Ctrl+V, Ctrl+A
+            if (event.ctrlKey || event.metaKey) {
+                switch (event.key.toLowerCase()) {
+                    case 'c':
+                    case 'v':
+                    case 'a':
+                    case 'x':
+                        event.preventDefault();
+                        return false;
+                }
+            }
+        });
+
+        // Désactiver le clic droit
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+        // Bloquer la sélection par drag
+        document.addEventListener('selectstart', function(event) {
+            event.preventDefault();
+        });
+
+        // Bloquer le drag and drop
+        document.addEventListener('dragstart', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

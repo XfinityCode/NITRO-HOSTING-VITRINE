@@ -81,7 +81,13 @@
             background: rgba(74, 144, 226, 0.1);
         }
 
-        .client-space {
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .client-space, .mail-button {
             background: var(--primary-color);
             padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
             border-radius: 25px;
@@ -91,7 +97,7 @@
             transition: transform 0.3s ease;
         }
 
-        .client-space:hover {
+        .client-space:hover, .mail-button:hover {
             transform: translateY(-2px);
         }
 
@@ -166,6 +172,15 @@
             color: var(--text-color);
             border: 1px solid rgba(74, 144, 226, 0.1);
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 700px;
+        }
+
+        .offer-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .offer-card:hover {
@@ -190,15 +205,28 @@
         }
 
         .offer-price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            margin: 1rem 0;
+        }
+
+        .offer-price-amount {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             color: var(--primary-color);
-            margin: clamp(1rem, 3vw, 1.5rem) 0;
             font-weight: bold;
+        }
+
+        .offer-price-period {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
         .offer-specs {
             text-align: left;
             margin: 1.5rem 0;
+            flex-grow: 1;
         }
 
         .offer-specs p {
@@ -216,11 +244,11 @@
             border-radius: 25px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 1.5rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: transform 0.3s ease, background-color 0.3s ease;
+            margin-top: auto;
         }
 
         .order-button:hover {
@@ -248,9 +276,13 @@
                 padding: 0.3rem 0.6rem;
             }
 
-            .client-space {
+            .client-space, .mail-button {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
+            }
+
+            .nav-buttons {
+                gap: 0.5rem;
             }
 
             .offer-specs p {
@@ -267,6 +299,7 @@
         }
     </style>
 </head>
+
 <body oncontextmenu="return false">
     <nav class="navbar">
         <div class="logo-container">
@@ -275,13 +308,16 @@
             </div>
             <div class="logo-text">Nitro-Hosting</div>
         </div>
-        <a href="https://discord.gg/8Xyf8Pqavu" class="client-space" target="_blank">Notre Discord</a>
+        <div class="nav-buttons">
+            <a href="mailto:contact@nitro-hosting.fr" class="mail-button">Notre Mail</a>
+            <a href="https://discord.gg/8Xyf8Pqavu" class="client-space" target="_blank">Notre Discord</a>
+        </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Nitro <span>Hosting</span></h1>
-            <p>LOUEZ VOTRE SERVEUR GTA RP À PARTIR DE 5 €</p>
+            <p>LOUEZ VOTRE SERVEUR GTA RP À PARTIR DE 2 €</p>
             <div class="rating">
                 <div>Excellent</div>
                 <div class="stars">★★★★★</div>
@@ -292,60 +328,98 @@
     <section class="offers">
         <div class="offers-grid">
             <div class="offer-card">
-                <div class="offer-icon">
-                    <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP" />
+                <div class="offer-content">
+                    <div class="offer-icon">
+                        <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP" />
+                    </div>
+                    <h3>Développement</h3>
+                    <div class="offer-price">
+                        <span class="offer-price-amount">2€</span>
+                        <span class="offer-price-period">ttc/mois</span>
+                    </div>
+                    <p>Idéal pour tester et développer votre serveur ! 💻</p>
+                    <div class="offer-specs">
+                        <p>2X INTEL XEON E5-2695 v4</p>
+                        <p>8 GO RAM DDR3 ECC</p>
+                        <p>10 GO de stockage SSD</p>
+                        <p>10 Gbps/s bande passante</p>
+                        <p>64 slots (Clé partagée comprise)</p>
+                        <p>Localisation : France</p>
+                    </div>
+                    <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
                 </div>
-                <h3>Starter</h3>
-                <p>Parfait pour démarrer votre aventure RP sans vous ruiner ! 🚀</p>
-                <div class="offer-price">5€ <span>ttc/mois</span></div>
-                <div class="offer-specs">
-                    <p>2X INTEL XEON E5-2695 v4</p>
-                    <p>4 GO RAM DDR3 ECC</p>
-                    <p>10 GO de stockage SSD</p>
-                    <p>10 Gbps/s bande passante</p>
-                    <p>64 slots (Clé partagée comprise)</p>
-                    <p>Localisation : France</p>
-                </div>
-                <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
             </div>
 
             <div class="offer-card">
-                <div class="offer-icon">
-                    <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP" />
+                <div class="offer-content">
+                    <div class="offer-icon">
+                        <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP" />
+                    </div>
+                    <h3>Essentiel</h3>
+                    <div class="offer-price">
+                        <span class="offer-price-amount">5€</span>
+                        <span class="offer-price-period">ttc/mois</span>
+                    </div>
+                    <p>Parfait pour démarrer votre aventure RP sans vous ruiner ! 🚀</p>
+                    <div class="offer-specs">
+                        <p>2X INTEL XEON E5-2695 v4</p>
+                        <p>12 GO RAM DDR3 ECC</p>
+                        <p>30 GO de stockage SSD</p>
+                        <p>10 Gbps/s bande passante</p>
+                        <p>64 slots (Clé partagée comprise)</p>
+                        <p>Localisation : France</p>
+                    </div>
+                    <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
                 </div>
-                <h3>Standard</h3>
-                <p>Propulsez votre serveur vers de nouveaux horizons ! ⚡</p>
-                <div class="offer-price">10€ <span>ttc/mois</span></div>
-                <div class="offer-specs">
-                    <p>2X INTEL XEON E5-2695 v4</p>
-                    <p>10 GO RAM DDR3 ECC</p>
-                    <p>30 GO de stockage SSD</p>
-                    <p>10 Gbps/s bande passante</p>
-                    <p>64 slots (Clé partagée comprise)</p>
-                    <p>Localisation : France</p>
-                </div>
-                <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
             </div>
 
             <div class="offer-card">
-                <div class="offer-icon">
-                    <img src="
-                    http://www.image-heberg.fr/files/17363038351487151209.png " alt="Serveur GTA RP" />
+                <div class="offer-content">
+                    <div class="offer-icon">
+                        <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP" />
+                    </div>
+                    <h3>Avancé</h3>
+                    <div class="offer-price">
+                        <span class="offer-price-amount">13€</span>
+                        <span class="offer-price-period">ttc/mois</span>
+                    </div>
+                    <p>Propulsez votre serveur vers de nouveaux horizons ! ⚡</p>
+                    <div class="offer-specs">
+                        <p>2X INTEL XEON E5-2695 v4</p>
+                        <p>24 GO RAM DDR3 ECC</p>
+                        <p>60 GO de stockage SSD</p>
+                        <p>10 Gbps/s bande passante</p>
+                        <p>64 slots (Clé partagée comprise)</p>
+                        <p>Localisation : France</p>
+                    </div>
+                    <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
                 </div>
-                <h3>Premium</h3>
-                <p>La puissance ultime pour des projets ambitieux ! 🏆</p>
-                <div class="offer-price">15€ <span>ttc/mois</span></div>
-                <div class="offer-specs">
-                    <p>2X INTEL XEON E5-2695 v4</p>
-                    <p>18 GO RAM DDR3 ECC</p>
-                    <p>100 GO de stockage SSD</p>
-                    <p>10 Gbps/s bande passante</p>
-                    <p>64 slots (Clé partagée comprise)</p>
-                    <p>Localisation : France</p>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-content">
+                    <div class="offer-icon">
+                        <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP" />
+                    </div>
+                    <h3>Excellence</h3>
+                    <div class="offer-price">
+                        <span class="offer-price-amount">18€</span>
+                        <span class="offer-price-period">ttc/mois</span>
+                    </div>
+                    <p>La puissance ultime pour des projets ambitieux ! 🏆</p>
+                    <div class="offer-specs">
+                        <p>2X INTEL XEON E5-2695 v4</p>
+                        <p>32 GO RAM DDR3 ECC</p>
+                        <p>100 GO de stockage SSD</p>
+                        <p>10 Gbps/s bande passante</p>
+                        <p>64 slots (Clé partagée comprise)</p>
+                        <p>Localisation : France</p>
+                    </div>
+                    <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
                 </div>
-                <a href="https://discord.gg/8Xyf8Pqavu" class="order-button" target="_blank">Commander</a>
             </div>
         </div>
+    </section>
 
     <script>
         document.addEventListener('keydown', function(event) {

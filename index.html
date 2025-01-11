@@ -153,6 +153,8 @@
         .offers {
             padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 2rem);
             background: rgba(35, 35, 66, 0.9);
+            text-align: center;
+            color: var(--text-color);
         }
 
         .offers-grid {
@@ -268,6 +270,29 @@
             margin-top: 0.8rem;
             font-size: clamp(1.2rem, 3vw, 1.5rem);
             letter-spacing: 5px;
+        }
+
+        .join-discord {
+            margin-top: 2rem;
+        }
+
+        .join-discord p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .join-button {
+            background: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .join-button:hover {
+            transform: translateY(-2px);
         }
 
         @media (max-width: 480px) {
@@ -417,6 +442,11 @@
                     <a href="https://discord.gg/AW7X6txWb5" class="order-button" target="_blank">Commander</a>
                 </div>
             </div>
+        </div>
+
+        <div class="join-discord">
+            <p>En cas de commande ou pour toute question, n'hésitez pas à rejoindre notre Discord et ouvrez un ticket, nous vous repondrons dans les plus brefs delais.</p>
+            <a href="https://discord.gg/AW7X6txWb5" class="join-button" target="_blank">Nous rejoindre</a>
         </div>
     </section>
 

@@ -66,6 +66,16 @@
             background-color: var(--background-color);
             line-height: 1.6;
         }
+        /* Styles pour le canvas de neige */
+        #snow-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
         .navbar {
             background-color: rgba(10, 10, 26, 0.95);
             padding: clamp(0.8rem, 2vw, 1.2rem);
@@ -151,7 +161,7 @@
         }
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 90%;
             width: 100%;
         }
@@ -174,8 +184,9 @@
             background: rgba(35, 35, 66, 0.9);
             text-align: center;
             color: var(--text-color);
+            position: relative;
+            z-index: 2;
         }
-
         .offers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -196,6 +207,7 @@
             flex-direction: column;
             min-height: 700px;
         }
+
         .offer-content {
             flex-grow: 1;
             display: flex;
@@ -329,6 +341,9 @@
     </style>
 </head>
 <body oncontextmenu="return false">
+    <!-- Canvas pour la neige -->
+    <canvas id="snow-canvas"></canvas>
+
     <nav class="navbar">
         <div class="logo-container">
             <div class="logo-image"><img src="http://www.image-heberg.fr/files/17363002484038730628.png" alt="Logo Nitro-Hosting" /></div>
@@ -338,6 +353,7 @@
             <a href="https://discord.gg/AW7X6txWb5" class="client-space" target="_blank" rel="noopener">Notre Discord</a>
         </div>
     </nav>
+
     <section class="hero">
         <div class="hero-content">
             <h1>Nitro <span>Hosting</span></h1>
@@ -440,12 +456,9 @@
                         <span class="offer-price-period">paiement unique</span>
                     </div>
                     <p style="line-height: 1.8; font-size: 0.95rem;">
-                    🚀 Démarrez votre aventure RP avec une base solide et optimisée !
-
-                    🎯 Template développé par nos soins
-                    
-                    ⚡ Performance et stabilité garanties
-            
+                    🚀 Démarrez votre aventure RP avec une base solide et optimisée !<br><br>
+                    🎯 Template développé par nos soins<br><br>
+                    ⚡ Performance et stabilité garanties<br><br>
                     🔥 Entièrement configurable</p>
                     <a href="https://discord.gg/AW7X6txWb5" class="order-button" target="_blank" rel="noopener">Commander</a>
                 </div>
@@ -456,9 +469,10 @@
             <a href="https://discord.gg/AW7X6txWb5" class="join-button" target="_blank" rel="noopener">Nous rejoindre</a>
         </div>
     </section>
+
     <script>
+        // Protection contre la copie
         document.addEventListener('keydown', function(event) {
-            // Bloquer Ctrl+C, Ctrl+V, Ctrl+A, Ctrl+X
             if (event.ctrlKey || event.metaKey) {
                 switch (event.key.toLowerCase()) {
                     case 'c':
@@ -479,6 +493,85 @@
         document.addEventListener('dragstart', function(event) {
             event.preventDefault();
         });
+
+        // Configuration de l'animation de neige
+        const snowConfig = {
+            flakeCount: 200,    // Nombre de flocons
+            minSpeed: 1,        // Vitesse minimum
+            maxSpeed: 3,        // Vitesse maximum
+            minSize: 1,         // Taille minimum des flocons
+            maxSize: 4,         // Taille maximum des flocons
+            wind: 0.5           // Force du vent (mouvement horizontal)
+        };
+
+        // Initialisation du canvas
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Redimensionnement du canvas
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Classe Flocon
+        class Snowflake {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height * -1;
+                this.size = snowConfig.minSize + Math.random() * (snowConfig.maxSize - snowConfig.minSize);
+                this.speed = snowConfig.minSpeed + Math.random() * (snowConfig.maxSpeed - snowConfig.minSpeed);
+                this.opacity = 0.5 + Math.random() * 0.5;
+                this.wind = Math.random() * snowConfig.wind;
+            }
+
+            update() {
+                this.y += this.speed;
+                this.x += this.wind;
+
+                // Effet de flottement
+                this.x += Math.sin(this.y / 30) * 0.5;
+
+                if (this.y > canvas.height || this.x > canvas.width) {
+                    this.reset();
+                    this.y = 0;
+                }
+                if (this.x < 0) {
+                    this.x = canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        // Création des flocons
+        const snowflakes = Array(snowConfig.flakeCount).fill(null).map(() => new Snowflake());
+
+        // Animation
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            snowflakes.forEach(flake => {
+                flake.update();
+                flake.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // Démarrage de l'animation
+        animate();
     </script>
 </body>
 </html>

@@ -45,7 +45,6 @@
             --card-background: rgba(42, 42, 74, 0.9);
             --text-color: white;
         }
-
         * {
             margin: 0;
             padding: 0;
@@ -56,17 +55,14 @@
             -ms-user-select: none;
             user-select: none;
         }
-
         html {
             font-size: 16px;
             scroll-behavior: smooth;
         }
-
         body {
             background-color: var(--background-color);
             line-height: 1.6;
         }
-
         .navbar {
             background-color: rgba(10, 10, 26, 0.95);
             padding: clamp(0.8rem, 2vw, 1.2rem);
@@ -80,13 +76,11 @@
             border-bottom: 1px solid rgba(74, 144, 226, 0.1);
             backdrop-filter: blur(10px);
         }
-
         .logo-container {
             display: flex;
             align-items: center;
             gap: clamp(0.5rem, 1vw, 1rem);
         }
-
         .logo-image {
             width: clamp(30px, 5vw, 40px);
             height: clamp(30px, 5vw, 40px);
@@ -96,14 +90,12 @@
             justify-content: center;
             align-items: center;
         }
-
         .logo-image img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             display: block;
         }
-
         .logo-text {
             color: var(--primary-color);
             font-size: clamp(1.2rem, 3vw, 1.8rem);
@@ -114,13 +106,11 @@
             border-radius: 5px;
             background: rgba(74, 144, 226, 0.1);
         }
-
         .nav-buttons {
             display: flex;
             gap: 1rem;
             align-items: center;
         }
-
         .client-space {
             background: var(--primary-color);
             padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
@@ -130,11 +120,9 @@
             font-weight: bold;
             transition: transform 0.3s ease;
         }
-
         .client-space:hover {
             transform: translateY(-2px);
         }
-
         .hero {
             background-image: url("http://www.image-heberg.fr/files/17363014841788547871.jpg");
             background-size: cover;
@@ -149,7 +137,6 @@
             position: relative;
             padding: 1rem;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -159,38 +146,32 @@
             bottom: 0;
             background: linear-gradient(45deg, rgba(10, 10, 26, 0.9), rgba(26, 26, 46, 0.8));
         }
-
         .hero-content {
             position: relative;
             z-index: 1;
             max-width: 90%;
             width: 100%;
         }
-
         .hero h1 {
             font-size: clamp(2rem, 8vw, 5rem);
             margin-bottom: clamp(1rem, 3vw, 1.5rem);
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             letter-spacing: 3px;
         }
-
         .hero h1 span {
             color: var(--primary-color);
         }
-
         .hero p {
             font-size: clamp(1.2rem, 4vw, 1.8rem);
             margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
             opacity: 0.9;
         }
-
         .offers {
             padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 2rem);
             background: rgba(35, 35, 66, 0.9);
             text-align: center;
             color: var(--text-color);
         }
-
         .offers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -199,7 +180,6 @@
             margin: 0 auto;
             padding: clamp(1rem, 3vw, 2rem);
         }
-
         .offer-card {
             background: var(--card-background);
             border-radius: 20px;
@@ -212,17 +192,14 @@
             flex-direction: column;
             min-height: 700px;
         }
-
         .offer-content {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-
         .offer-card:hover {
             transform: translateY(-5px);
         }
-
         .offer-icon {
             width: clamp(80px, 15vw, 120px);
             height: clamp(80px, 15vw, 120px);
@@ -233,13 +210,11 @@
             justify-content: center;
             align-items: center;
         }
-
         .offer-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
-
         .offer-price {
             display: flex;
             flex-direction: column;
@@ -247,24 +222,20 @@
             gap: 0.25rem;
             margin: 1rem 0;
         }
-
         .offer-price-amount {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             color: var(--primary-color);
             font-weight: bold;
         }
-
         .offer-price-period {
             font-size: 0.9rem;
             opacity: 0.8;
         }
-
         .offer-specs {
             text-align: left;
             margin: 1.5rem 0;
             flex-grow: 1;
         }
-
         .offer-specs p {
             margin: 0.8rem 0;
             color: #d0d0d0;
@@ -272,7 +243,6 @@
             border-radius: 5px;
             font-size: clamp(0.9rem, 2vw, 1rem);
         }
-
         .order-button {
             background: var(--primary-color);
             color: var(--text-color);
@@ -286,35 +256,29 @@
             transition: transform 0.3s ease, background-color 0.3s ease;
             margin-top: auto;
         }
-
         .order-button:hover {
             transform: translateY(-2px);
             background-color: #357abd;
         }
-
         .rating {
             background: rgba(74, 144, 226, 0.1);
             padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
             border-radius: 15px;
             margin-top: clamp(1.5rem, 4vw, 2.5rem);
         }
-
         .stars {
             color: var(--primary-color);
             margin-top: 0.8rem;
             font-size: clamp(1.2rem, 3vw, 1.5rem);
             letter-spacing: 5px;
         }
-
         .join-discord {
             margin-top: 2rem;
         }
-
         .join-discord p {
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
-
         .join-button {
             background: var(--primary-color);
             padding: 0.8rem 1.5rem;
@@ -324,31 +288,25 @@
             font-weight: bold;
             transition: transform 0.3s ease;
         }
-
         .join-button:hover {
             transform: translateY(-2px);
         }
-
         @media (max-width: 480px) {
             .logo-text {
                 font-size: 1rem;
                 padding: 0.3rem 0.6rem;
             }
-
             .client-space {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
             }
-
             .nav-buttons {
                 gap: 0.5rem;
             }
-
             .offer-specs p {
                 font-size: 0.85rem;
             }
         }
-
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation: none !important;
@@ -358,20 +316,16 @@
         }
     </style>
 </head>
-
 <body oncontextmenu="return false">
     <nav class="navbar">
         <div class="logo-container">
-            <div class="logo-image">
-                <img src="http://www.image-heberg.fr/files/17363002484038730628.png" alt="Logo Nitro-Hosting" />
-            </div>
+            <div class="logo-image"><img src="http://www.image-heberg.fr/files/17363002484038730628.png" alt="Logo Nitro-Hosting" /></div>
             <div class="logo-text">Nitro-Hosting</div>
         </div>
         <div class="nav-buttons">
             <a href="https://discord.gg/AW7X6txWb5" class="client-space" target="_blank" rel="noopener">Notre Discord</a>
         </div>
     </nav>
-
     <section class="hero">
         <div class="hero-content">
             <h1>Nitro <span>Hosting</span></h1>
@@ -382,14 +336,11 @@
             </div>
         </div>
     </section>
-
     <section class="offers">
         <div class="offers-grid">
             <div class="offer-card">
                 <div class="offer-content">
-                    <div class="offer-icon">
-                        <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Développement" />
-                    </div>
+                    <div class="offer-icon"><img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Développement" /></div>
                     <h3>Développement</h3>
                     <div class="offer-price">
                         <span class="offer-price-amount">2€</span>
@@ -398,7 +349,7 @@
                     <p>Idéal pour tester et développer votre serveur ! 💻</p>
                     <div class="offer-specs">
                         <p>RYZEN 9 5900X</p>
-                        <p>8 GO RAM DDR3 ECC</p>
+                        <p>8 GO RAM DDR4</p>
                         <p>10 GO de stockage SSD</p>
                         <p>10 Gbps/s bande passante</p>
                         <p>10 slots (Clé partagée comprise)</p>
@@ -407,12 +358,9 @@
                     <a href="https://discord.gg/AW7X6txWb5" class="order-button" target="_blank" rel="noopener">Commander</a>
                 </div>
             </div>
-
             <div class="offer-card">
                 <div class="offer-content">
-                    <div class="offer-icon">
-                        <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Essentiel" />
-                    </div>
+                    <div class="offer-icon"><img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Essentiel" /></div>
                     <h3>Essentiel</h3>
                     <div class="offer-price">
                         <span class="offer-price-amount">5€</span>
@@ -421,7 +369,7 @@
                     <p>Parfait pour démarrer votre aventure RP sans vous ruiner ! 🚀</p>
                     <div class="offer-specs">
                         <p>RYZEN 9 5900X</p>
-                        <p>12 GO RAM DDR3 ECC</p>
+                        <p>12 GO RAM DDR4</p>
                         <p>30 GO de stockage SSD</p>
                         <p>10 Gbps/s bande passante</p>
                         <p>32 slots (Clé partagée comprise)</p>
@@ -430,12 +378,9 @@
                     <a href="https://discord.gg/AW7X6txWb5" class="order-button" target="_blank" rel="noopener">Commander</a>
                 </div>
             </div>
-
             <div class="offer-card">
                 <div class="offer-content">
-                    <div class="offer-icon">
-                        <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Avancé" />
-                    </div>
+                    <div class="offer-icon"><img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Avancé" /></div>
                     <h3>Avancé</h3>
                     <div class="offer-price">
                         <span class="offer-price-amount">13€</span>
@@ -444,7 +389,7 @@
                     <p>Propulsez votre serveur vers de nouveaux horizons ! ⚡</p>
                     <div class="offer-specs">
                         <p>RYZEN 9 5900X</p>
-                        <p>24 GO RAM DDR3 ECC</p>
+                        <p>24 GO RAM DDR4</p>
                         <p>60 GO de stockage SSD</p>
                         <p>10 Gbps/s bande passante</p>
                         <p>64 slots (Clé partagée comprise)</p>
@@ -453,12 +398,9 @@
                     <a href="https://discord.gg/AW7X6txWb5" class="order-button" target="_blank" rel="noopener">Commander</a>
                 </div>
             </div>
-
             <div class="offer-card">
                 <div class="offer-content">
-                    <div class="offer-icon">
-                        <img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Excellence" />
-                    </div>
+                    <div class="offer-icon"><img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Excellence" /></div>
                     <h3>Excellence</h3>
                     <div class="offer-price">
                         <span class="offer-price-amount">18€</span>
@@ -467,7 +409,7 @@
                     <p>La puissance ultime pour des projets ambitieux ! 🏆</p>
                     <div class="offer-specs">
                         <p>RYZEN 9 5900X</p>
-                        <p>32 GO RAM DDR3 ECC</p>
+                        <p>32 GO RAM DDR4</p>
                         <p>100 GO de stockage SSD</p>
                         <p>10 Gbps/s bande passante</p>
                         <p>64 slots (Clé partagée comprise)</p>
@@ -476,14 +418,24 @@
                     <a href="https://discord.gg/AW7X6txWb5" class="order-button" target="_blank" rel="noopener">Commander</a>
                 </div>
             </div>
+            <div class="offer-card">
+                <div class="offer-content">
+                    <div class="offer-icon"><img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Base Template FIVEM" /></div>
+                    <h3>Base Template FiveM</h3>
+                    <div class="offer-price">
+                        <span class="offer-price-amount">20€</span>
+                        <span class="offer-price-period">paiement unique</span>
+                    </div>
+                    <p>Obtenez un template de base pour votre serveur FIVEM, développé par l’équipe Nitro Hosting, afin de bénéficier d’une fondation solide et prête à l’emploi pour commencer votre aventure RP.</p>
+                    <a href="https://discord.gg/AW7X6txWb5" class="order-button" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
         </div>
-
         <div class="join-discord">
             <p>En cas de commande ou pour toute question, n'hésitez pas à rejoindre notre Discord et ouvrez un ticket, nous vous répondrons dans les plus brefs délais.</p>
             <a href="https://discord.gg/AW7X6txWb5" class="join-button" target="_blank" rel="noopener">Nous rejoindre</a>
         </div>
     </section>
-
     <script>
         document.addEventListener('keydown', function(event) {
             // Bloquer Ctrl+C, Ctrl+V, Ctrl+A, Ctrl+X
@@ -498,18 +450,12 @@
                 }
             }
         });
-
-        // Désactiver le clic droit
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
         });
-
-        // Bloquer la sélection par drag
         document.addEventListener('selectstart', function(event) {
             event.preventDefault();
         });
-
-        // Bloquer le drag and drop
         document.addEventListener('dragstart', function(event) {
             event.preventDefault();
         });

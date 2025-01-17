@@ -206,6 +206,29 @@
             display: flex;
             flex-direction: column;
             min-height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Style du bandeau promo */
+        .promo-banner {
+            position: absolute;
+            top: 25px;
+            right: -35px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .promo-period {
+            font-size: 0.8rem;
+            color: #d0d0d0;
+            margin-top: 5px;
         }
 
         .offer-content {
@@ -340,6 +363,7 @@
         }
     </style>
 </head>
+
 <body oncontextmenu="return false">
     <!-- Canvas pour la neige -->
     <canvas id="snow-canvas"></canvas>
@@ -364,6 +388,7 @@
             </div>
         </div>
     </section>
+
     <section class="offers">
         <div class="offers-grid">
             <div class="offer-card">
@@ -407,13 +432,16 @@
                     <a href="https://discord.gg/AW7X6txWb5" class="order-button" target="_blank" rel="noopener">Commander</a>
                 </div>
             </div>
+
             <div class="offer-card">
+                <div class="promo-banner">-10% 1er mois</div>
                 <div class="offer-content">
                     <div class="offer-icon"><img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Avancé" /></div>
                     <h3>Avancé</h3>
                     <div class="offer-price">
                         <span class="offer-price-amount">13€</span>
                         <span class="offer-price-period">ttc/mois</span>
+                        <span class="promo-period">Offre valable jusqu'au 31 janvier 2025</span>
                     </div>
                     <p>Propulsez votre serveur vers de nouveaux horizons ! ⚡</p>
                     <div class="offer-specs">
@@ -427,13 +455,16 @@
                     <a href="https://discord.gg/AW7X6txWb5" class="order-button" target="_blank" rel="noopener">Commander</a>
                 </div>
             </div>
+
             <div class="offer-card">
+                <div class="promo-banner">-20% 1er mois</div>
                 <div class="offer-content">
                     <div class="offer-icon"><img src="http://www.image-heberg.fr/files/17363038351487151209.png" alt="Serveur GTA RP Excellence" /></div>
                     <h3>Excellence</h3>
                     <div class="offer-price">
                         <span class="offer-price-amount">18€</span>
                         <span class="offer-price-period">ttc/mois</span>
+                        <span class="promo-period">Offre valable jusqu'au 31 janvier 2025</span>
                     </div>
                     <p>La puissance ultime pour des projets ambitieux ! 🏆</p>
                     <div class="offer-specs">
@@ -574,4 +605,4 @@
         animate();
     </script>
 </body>
-</html>
+</html>   
